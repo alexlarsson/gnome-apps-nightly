@@ -1,0 +1,71 @@
+{
+    "app-id": "org.gnome.Evince",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "strip": false,
+    "command": "evince",
+    "rename-desktop-file": "evince.desktop",
+    "rename-appdata-file": "evince.appdata.xml",
+    "rename-icon": "evince",
+    "finish-args": ["--share=ipc", "--socket=x11", "--socket=pulseaudio", "--filesystem=host", "--talk-name=ca.desrt.dconf"],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            "V": "1"
+        }
+    },
+    "cleanup": ["/include", "/lib/pkgconfig",
+                "/share/pkgconfig", "/share/aclocal",
+                "/man", "/share/man", "/share/gtk-doc",
+                "/share/vala",
+                "*.la", "*.a"],
+    "modules": [
+        {
+            "name": "autoconf-archive",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.acc.umu.se/mirror/gnu.org/gnu/autoconf-archive/autoconf-archive-2015.09.25.tar.xz",
+                    "sha256": "7c0467a5dbd2340153bca5a477bd92fbc951d9ee3cbed92f16f6bf08ac0c350a"
+                }
+            ]
+        },
+        {
+            "name": "popplerdata",
+            "no-autogen": true,
+            "make-install-args": ["prefix=/app"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://poppler.freedesktop.org/poppler-data-0.4.7.tar.gz",
+                    "sha256": "e752b0d88a7aba54574152143e7bf76436a7ef51977c55d6bd9a48dccde3a7de"
+                }
+            ]
+        },
+        {
+            "name": "poppler",
+            "config-opts": [ "--disable-libopenjpeg" ],
+            "cleanup": [ "/bin" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://poppler.freedesktop.org/poppler-0.36.0.tar.xz",
+                    "sha256": "93cc067b23c4ef7421380d3e8bd7c940b2027668446750787d7c1cb42720248e"
+                }
+            ]
+        },
+        {
+            "name": "evince",
+            "config-opts": [ "--disable-nautilus" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/evince"
+                }
+            ]
+        }
+    ]
+}
