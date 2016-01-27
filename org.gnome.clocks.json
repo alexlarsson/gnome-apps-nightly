@@ -5,6 +5,7 @@
     "sdk": "org.gnome.Sdk",
     "command": "gnome-clocks",
     "finish-args": ["--share=ipc", "--share=network", "--socket=x11", "--talk-name=ca.desrt.dconf",
+                    /* Needed for geoclue: */
                     "--socket=system-bus"],
     "build-options" : {
         "cflags": "-O2 -g",
@@ -71,6 +72,7 @@
         {
             "name": "geoclue",
             "config-opts": ["--disable-3g-source", "--disable-cdma-source", "--disable-modem-gps-source", "--disable-nmea-source"],
+            "cleanup": [ "/share/applications", "/share/dbus-1/interfaces", "/etc/dbus-1/system.d", "/libexec", "/share/dbus-1/system-services" ],
             "sources": [
                 {
                     "type": "git",
