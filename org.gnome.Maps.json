@@ -6,8 +6,12 @@
     "strip": false,
     "command": "gnome-maps",
     "rename-icon": "gnome-maps",
-    "finish-args": ["--share=ipc", "--socket=x11", "--socket=pulseaudio", "--share=network", "--talk-name=ca.desrt.dconf",
+    "finish-args": ["--share=ipc", "--socket=x11", "--socket=pulseaudio", "--share=network", "--filesystem=host", "--talk-name=ca.desrt.dconf",
                     "--talk-name=org.gnome.OnlineAccounts",
+                    "--talk-name=org.gnome.evolution.dataserver.AddressBook9",
+                    "--talk-name=org.gnome.evolution.dataserver.Calendar7",
+                    "--talk-name=org.gnome.evolution.dataserver.Sources5",
+                    "--talk-name=org.gnome.evolution.dataserver.Subprocess.Backend.*",
                     /* Needed for geoclue: */
                     "--socket=system-bus"],
     "build-options" : {
@@ -50,6 +54,31 @@
             ]
         },
         {
+            "name": "p11-kit",
+            "cleanup": [ "/bin"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://p11-glue.freedesktop.org/releases/p11-kit-0.23.2.tar.gz",
+                    "sha256": "ba726ea8303c97467a33fca50ee79b7b35212964be808ecf9b145e9042fdfaf0"
+                }
+            ]
+        },
+        {
+            "name": "libical",
+            "cleanup": [ "/lib/cmake"],
+            "cmake": true,
+            "config-opts": [ "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib",
+                             "-DBUILD_SHARED_LIBS:BOOL=ON" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libical/libical/releases/download/v1.0.1/libical-1.0.1.tar.gz",
+                    "sha256": "089ce3c42d97fbd7a5d4b3c70adbdd82115dd306349c1f5c46a8fb3f8c949592"
+                }
+            ]
+        },
+        {
             "name": "libgee",
             "build-options" : {
                 "env": {
@@ -65,16 +94,22 @@
             ]
         },
         {
-            "name": "folks",
-            "cleanup": [ "/bin", "/share/GConf" ],
-            "config-opts": ["--disable-telepathy-backend",
-                            "--disable-eds-backend",
-                            "--disable-ofono-backend",
-                            "--disable-bluez-backend"],
+            "name": "gcr",
+            "cleanup": [ "/bin", "/libexec", "/share/applications", "/share/GConf" ],
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://git.gnome.org/folks"
+                    "url": "git://git.gnome.org/gcr"
+                }
+            ]
+        },
+        {
+            "name": "gnome-online-accounts",
+            "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-online-accounts"
                 }
             ]
         },
@@ -84,6 +119,40 @@
                 {
                     "type": "git",
                     "url": "git://git.gnome.org/geocode-glib"
+                }
+            ]
+        },
+        {
+            "name": "libgweather",
+            "config-opts": ["--disable-vala"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/libgweather"
+                }
+            ]
+        },
+        {
+            "name": "evolution-data-server",
+            "cleanup": ["/lib/evolution-data-server/*-backends", "/libexec", "/share/dbus-1/services" ],
+            "config-opts": ["--disable-gtk", "--disable-google-auth", "--disable-uoa", "--disable-google", "--enable-vala-bindings" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/evolution-data-server"
+                }
+            ]
+        },
+        {
+            "name": "folks",
+            "cleanup": [ "/bin", "/share/GConf" ],
+            "config-opts": ["--disable-telepathy-backend",
+                            "--disable-ofono-backend",
+                            "--disable-bluez-backend"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/folks"
                 }
             ]
         },
@@ -106,16 +175,6 @@
             ]
         },
         {
-            "name": "gnome-online-accounts",
-            "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-online-accounts"
-                }
-            ]
-        },
-        {
             "name": "libgfbgraph",
             "cleanup": [ "/doc/libgfbgraph"],
             "sources": [
@@ -128,22 +187,12 @@
         {
             "name": "geoclue",
             "config-opts": ["--disable-3g-source", "--disable-cdma-source", "--disable-modem-gps-source", "--disable-nmea-source"],
-            "cleanup": [ "/share/applications", "/share/dbus-1/interfaces", "/etc/dbus-1/system.d", "/libexec" ],
+            "cleanup": [ "/share/applications", "/share/dbus-1/interfaces", "/etc/dbus-1/system.d", "/libexec", "/share/dbus-1/system-services" ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "http://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.1.tar.xz",
                     "sha256": "9a19fd00f6064d6f29e791ee28afb839431e280fed3ad851aa04a0ddae0d34d4"
-                }
-            ]
-        },
-        {
-            "name": "libgweather",
-            "config-opts": ["--disable-vala"],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "git://git.gnome.org/libgweather"
                 }
             ]
         },
