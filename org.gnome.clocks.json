@@ -1,0 +1,118 @@
+{
+    "app-id": "org.gnome.clocks",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "command": "gnome-clocks",
+    "finish-args": ["--share=ipc", "--share=network", "--socket=x11", "--talk-name=ca.desrt.dconf",
+                    "--socket=system-bus"],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            "V": "1"
+        }
+    },
+    "cleanup": ["/include", "/lib/pkgconfig",
+                "/share/pkgconfig", "/share/aclocal",
+                "/man", "/share/man", "/share/gtk-doc",
+                "/share/vala",
+                "*.la", "*.a"],
+    "modules": [
+        {
+            "name": "autoconf-archive",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.acc.umu.se/mirror/gnu.org/gnu/autoconf-archive/autoconf-archive-2015.09.25.tar.xz",
+                    "sha256": "7c0467a5dbd2340153bca5a477bd92fbc951d9ee3cbed92f16f6bf08ac0c350a"
+                }
+            ]
+        },
+        {
+            "name": "pkg-config",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://pkgconfig.freedesktop.org/releases/pkg-config-0.29.tar.gz",
+                    "sha256": "c8507705d2a10c67f385d66ca2aae31e81770cc0734b4191eb8c489e864a006b"
+                },
+                {
+                    "type": "patch",
+                    "path": "pkg-config-overrides.patch"
+                }
+            ]
+        },
+        {
+            "name": "geocode-glib",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/geocode-glib"
+                }
+            ]
+        },
+        {
+            "name": "libgweather",
+            "build-options": {
+                "env": {
+                    "PKG_CONFIG_VAPIGEN_VAPIDIR": "/app/share/vala/vapi"
+                }
+            },
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/libgweather"
+                }
+            ]
+        },
+        {
+            "name": "geoclue",
+            "config-opts": ["--disable-3g-source", "--disable-cdma-source", "--disable-modem-gps-source", "--disable-nmea-source"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/geoclue"
+                }
+            ]
+        },
+        {
+            "name": "gnome-desktop",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-desktop"
+                }
+            ]
+        },
+        {
+            "name": "libcanberra",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.0pointer.net/libcanberra.git"
+                }
+            ]
+        },
+        {
+            "name": "gsound",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gsound"
+                }
+            ]
+        },
+        {
+            "name": "gnome-clocks",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-clocks"
+                }
+            ]
+        }
+    ]
+}
