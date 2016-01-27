@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Calculator",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.18",
+    "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
     "strip": false,
     "command": "gnome-calculator",
@@ -45,8 +45,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://git.gnome.org/gtksourceview",
-                    "branch": "gnome-3-18"
+                    "url": "git://git.gnome.org/gtksourceview"
                 }
             ]
         },
