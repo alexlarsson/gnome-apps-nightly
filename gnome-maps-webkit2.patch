@@ -1,0 +1,45 @@
+diff --git a/data/ui/osm-account-dialog.ui b/data/ui/osm-account-dialog.ui
+index b28ff65..c9545a2 100644
+--- a/data/ui/osm-account-dialog.ui
++++ b/data/ui/osm-account-dialog.ui
+@@ -190,7 +190,6 @@ OpenStreetMap account.</property>
+                   <object class="WebKitWebView" id="verifyView">
+                     <property name="visible">True</property>
+                     <property name="halign">GTK_ALIGN_FILL</property>
+-                    <property name="self-scrolling">True</property>
+                     <property name="height-request">250</property>
+                   </object>
+                   <packing>
+diff --git a/src/osmAccountDialog.js b/src/osmAccountDialog.js
+index 324f84b..0163ed9 100644
+--- a/src/osmAccountDialog.js
++++ b/src/osmAccountDialog.js
+@@ -23,7 +23,7 @@
+ const GObject = imports.gi.GObject;
+ const Gtk = imports.gi.Gtk;
+ const Lang = imports.lang;
+-const WebKit = imports.gi.WebKit;
++const WebKit2 = imports.gi.WebKit2;
+ 
+ const Application = imports.application;
+ 
+@@ -52,7 +52,7 @@ const OSMAccountDialog = new Lang.Class({
+     _init: function(params) {
+         /* This is a construct-only property and cannot be set by GtkBuilder */
+         params.use_header_bar = true;
+-        GObject.type_ensure(WebKit.WebView);
++        GObject.type_ensure(WebKit2.WebView);
+ 
+         this._closeOnSignIn = params.closeOnSignIn;
+         delete params.closeOnSignIn;
+@@ -123,8 +123,8 @@ const OSMAccountDialog = new Lang.Class({
+         if (success) {
+             /* switch to the verification view and show the verification
+                page */
+-            this._verifyView.load_html_string(verificationPage,
+-                                              'https://www.openstreetmap.org/');
++            this._verifyView.load_html(verificationPage,
++                                       'https://www.openstreetmap.org/');
+             this._stack.visible_child_name = 'verify';
+         } else {
+             /* clear password entry */

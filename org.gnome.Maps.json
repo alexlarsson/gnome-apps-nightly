@@ -1,0 +1,164 @@
+{
+    "app-id": "org.gnome.Maps",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "strip": false,
+    "command": "gnome-maps",
+    "rename-icon": "gnome-maps",
+    "finish-args": ["--share=ipc", "--socket=x11", "--socket=pulseaudio", "--share=network", "--talk-name=ca.desrt.dconf",
+                    "--talk-name=org.gnome.OnlineAccounts",
+                    /* Needed for geoclue: */
+                    "--socket=system-bus"],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            "V": "1"
+        }
+    },
+    "cleanup": ["/include", "/lib/pkgconfig",
+                "/share/pkgconfig", "/share/aclocal",
+                "/man", "/share/man", "/share/gtk-doc",
+                "/share/vala",
+                "*.la", "*.a"],
+    "modules": [
+        {
+            "name": "autoconf-archive",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.acc.umu.se/mirror/gnu.org/gnu/autoconf-archive/autoconf-archive-2015.09.25.tar.xz",
+                    "sha256": "7c0467a5dbd2340153bca5a477bd92fbc951d9ee3cbed92f16f6bf08ac0c350a"
+                }
+            ]
+        },
+        {
+            "name": "pkg-config",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://pkgconfig.freedesktop.org/releases/pkg-config-0.29.tar.gz",
+                    "sha256": "c8507705d2a10c67f385d66ca2aae31e81770cc0734b4191eb8c489e864a006b"
+                },
+                {
+                    "type": "patch",
+                    "path": "pkg-config-overrides.patch"
+                }
+            ]
+        },
+        {
+            "name": "libgee",
+            "build-options" : {
+                "env": {
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
+                }
+            },
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/libgee"
+                }
+            ]
+        },
+        {
+            "name": "folks",
+            "cleanup": [ "/bin", "/share/GConf" ],
+            "config-opts": ["--disable-telepathy-backend",
+                            "--disable-eds-backend",
+                            "--disable-ofono-backend",
+                            "--disable-bluez-backend"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/folks"
+                }
+            ]
+        },
+        {
+            "name": "geocode-glib",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/geocode-glib"
+                }
+            ]
+        },
+        {
+            "name": "libchamplain",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/libchamplain"
+                }
+            ]
+        },
+        {
+            "name": "librest",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/librest"
+                }
+            ]
+        },
+        {
+            "name": "gnome-online-accounts",
+            "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-online-accounts"
+                }
+            ]
+        },
+        {
+            "name": "libgfbgraph",
+            "cleanup": [ "/doc/libgfbgraph"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/libgfbgraph"
+                }
+            ]
+        },
+        {
+            "name": "geoclue",
+            "config-opts": ["--disable-3g-source", "--disable-cdma-source", "--disable-modem-gps-source", "--disable-nmea-source"],
+            "cleanup": [ "/share/applications", "/share/dbus-1/interfaces", "/etc/dbus-1/system.d", "/libexec" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.1.tar.xz",
+                    "sha256": "9a19fd00f6064d6f29e791ee28afb839431e280fed3ad851aa04a0ddae0d34d4"
+                }
+            ]
+        },
+        {
+            "name": "libgweather",
+            "config-opts": ["--disable-vala"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/libgweather"
+                }
+            ]
+        },
+        {
+            "name": "gnome-maps",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-maps"
+                },
+                {
+                    "type": "patch",
+                    "path": "gnome-maps-webkit2.patch"
+                }
+            ]
+        }
+    ]
+}
