@@ -1,0 +1,104 @@
+{
+    "app-id": "org.gnome.Todo",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "strip": false,
+    "command": "gnome-todo",
+    "finish-args": ["--share=ipc", "--socket=x11", "--socket=pulseaudio",
+                    "--share=network", "--filesystem=host", "--talk-name=ca.desrt.dconf",
+                    "--talk-name=org.gnome.OnlineAccounts",
+                    "--talk-name=org.gnome.evolution.dataserver.AddressBook9",
+                    "--talk-name=org.gnome.evolution.dataserver.Calendar7",
+                    "--talk-name=org.gnome.evolution.dataserver.Sources5",
+                    "--talk-name=org.gnome.evolution.dataserver.Subprocess.Backend.*"],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            "V": "1"
+        }
+    },
+    "cleanup": ["/include", "/lib/pkgconfig",
+                "/share/pkgconfig", "/share/aclocal",
+                "/man", "/share/man", "/share/gtk-doc",
+                "/share/vala",
+                "*.la", "*.a"],
+    "modules": [
+        {
+            "name": "autoconf-archive",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.acc.umu.se/mirror/gnu.org/gnu/autoconf-archive/autoconf-archive-2015.09.25.tar.xz",
+                    "sha256": "7c0467a5dbd2340153bca5a477bd92fbc951d9ee3cbed92f16f6bf08ac0c350a"
+                }
+            ]
+        },
+        {
+            "name": "gnome-online-accounts",
+            "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-online-accounts"
+                }
+            ]
+        },
+        {
+            "name": "libical",
+            "cleanup": [ "/lib/cmake"],
+            "cmake": true,
+            "config-opts": [ "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib",
+                             "-DBUILD_SHARED_LIBS:BOOL=ON" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libical/libical/releases/download/v1.0.1/libical-1.0.1.tar.gz",
+                    "sha256": "089ce3c42d97fbd7a5d4b3c70adbdd82115dd306349c1f5c46a8fb3f8c949592"
+                }
+            ]
+        },
+        {
+            "name": "gcr",
+            "cleanup": [ "/bin", "/libexec", "/share/applications", "/share/GConf" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gcr"
+                }
+            ]
+        },
+        {
+            "name": "evolution-data-server",
+            "cleanup": ["/lib/evolution-data-server/*-backends", "/libexec", "/share/dbus-1/services" ],
+            "config-opts": ["--disable-google-auth",
+                            "--disable-uoa", "--disable-google", "--disable-weather" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/evolution-data-server"
+                }
+            ]
+        },
+        {
+            "name": "libpeas",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/libpeas"
+                }
+            ]
+        },
+        {
+            "name": "gnome-todo",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-todo"
+                }
+            ]
+        }
+    ]
+}
