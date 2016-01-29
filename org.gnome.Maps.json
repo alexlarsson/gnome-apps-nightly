@@ -6,7 +6,8 @@
     "strip": false,
     "command": "gnome-maps",
     "rename-icon": "gnome-maps",
-    "finish-args": ["--share=ipc", "--socket=x11", "--socket=pulseaudio", "--share=network", "--filesystem=host", "--talk-name=ca.desrt.dconf",
+    "finish-args": ["--device=dri", "--share=ipc", "--socket=x11", "--socket=pulseaudio",
+                    "--share=network", "--filesystem=host", "--talk-name=ca.desrt.dconf",
                     "--talk-name=org.gnome.OnlineAccounts",
                     "--talk-name=org.gnome.evolution.dataserver.AddressBook9",
                     "--talk-name=org.gnome.evolution.dataserver.Calendar7",
@@ -189,10 +190,6 @@
                 {
                     "type": "git",
                     "url": "git://git.gnome.org/gnome-maps"
-                },
-                {
-                    "type": "patch",
-                    "path": "gnome-maps-webkit2.patch"
                 }
             ]
         }
