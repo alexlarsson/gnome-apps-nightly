@@ -51,7 +51,7 @@
         },
         {
             "name": "geoclue",
-            "config-opts": ["--disable-3g-source", "--disable-cdma-source", "--disable-modem-gps-source", "--disable-nmea-source"],
+            "config-opts": ["--disable-backend"],
             "sources": [
                 {
                     "type": "git",
