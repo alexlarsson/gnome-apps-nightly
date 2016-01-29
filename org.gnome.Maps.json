@@ -189,10 +189,6 @@
                 {
                     "type": "git",
                     "url": "git://git.gnome.org/gnome-maps"
-                },
-                {
-                    "type": "patch",
-                    "path": "gnome-maps-webkit2.patch"
                 }
             ]
         }
