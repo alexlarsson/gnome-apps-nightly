@@ -186,13 +186,11 @@
         },
         {
             "name": "geoclue",
-            "config-opts": ["--disable-3g-source", "--disable-cdma-source", "--disable-modem-gps-source", "--disable-nmea-source"],
-            "cleanup": [ "/share/applications", "/share/dbus-1/interfaces", "/etc/dbus-1/system.d", "/libexec", "/share/dbus-1/system-services" ],
+            "config-opts": ["--disable-backend"],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "http://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.1.tar.xz",
-                    "sha256": "9a19fd00f6064d6f29e791ee28afb839431e280fed3ad851aa04a0ddae0d34d4"
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/geoclue"
                 }
             ]
         },

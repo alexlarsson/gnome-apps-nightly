@@ -71,8 +71,7 @@
         },
         {
             "name": "geoclue",
-            "config-opts": ["--disable-3g-source", "--disable-cdma-source", "--disable-modem-gps-source", "--disable-nmea-source"],
-            "cleanup": [ "/share/applications", "/share/dbus-1/interfaces", "/etc/dbus-1/system.d", "/libexec", "/share/dbus-1/system-services" ],
+            "config-opts": ["--disable-backend"],
             "sources": [
                 {
                     "type": "git",
