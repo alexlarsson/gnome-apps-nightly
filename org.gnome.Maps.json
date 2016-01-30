@@ -5,7 +5,6 @@
     "sdk": "org.gnome.Sdk",
     "strip": false,
     "command": "gnome-maps",
-    "rename-icon": "gnome-maps",
     "finish-args": ["--device=dri", "--share=ipc", "--socket=x11", "--socket=pulseaudio",
                     "--share=network", "--filesystem=host", "--talk-name=ca.desrt.dconf",
                     "--talk-name=org.gnome.OnlineAccounts",
