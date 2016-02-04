@@ -61,6 +61,7 @@
         },
         {
             "name": "gnome-desktop",
+            "config-opts": ["--disable-debug-tools"],
             "sources": [
                 {
                     "type": "git",
