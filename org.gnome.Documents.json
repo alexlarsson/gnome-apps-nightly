@@ -32,7 +32,7 @@
         },
         {
             "name": "gnome-desktop",
-            "cleanup": ["/libexec" ],
+            "config-opts": ["--disable-debug-tools"],
             "sources": [
                 {
                     "type": "git",
