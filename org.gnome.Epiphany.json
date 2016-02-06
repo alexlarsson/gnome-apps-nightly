@@ -1,0 +1,125 @@
+{
+    "app-id": "org.gnome.Epiphany",
+    "runtime": "org.gnome.Sdk",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "strip": false,
+    "command": "epiphany",
+    "rename-appdata-file": "epiphany.appdata.xml",
+    "rename-desktop-file": "epiphany.desktop",
+    "finish-args": ["--share=ipc", "--share=network",
+                    "--socket=x11", "--socket=pulseaudio",
+                    "--filesystem=host",
+                    "--device=dri",
+                    "--talk-name=ca.desrt.dconf"],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            "V": "1"
+        }
+    },
+    "cleanup": ["/include", "/lib/pkgconfig",
+                "/share/pkgconfig", "/share/aclocal",
+                "/man", "/share/man", "/share/gtk-doc",
+                "/share/dbus-1",
+                "*.la", "*.a"],
+    "modules": [
+        {
+            "name": "autoconf-archive",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.acc.umu.se/mirror/gnu.org/gnu/autoconf-archive/autoconf-archive-2015.09.25.tar.xz",
+                    "sha256": "7c0467a5dbd2340153bca5a477bd92fbc951d9ee3cbed92f16f6bf08ac0c350a"
+                }
+            ]
+        },
+        {
+            "name": "pkg-config",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://pkgconfig.freedesktop.org/releases/pkg-config-0.29.tar.gz",
+                    "sha256": "c8507705d2a10c67f385d66ca2aae31e81770cc0734b4191eb8c489e864a006b"
+                },
+                {
+                    "type": "patch",
+                    "path": "pkg-config-overrides.patch"
+                }
+            ]
+        },
+        {
+            "name": "gcr",
+            "cleanup": [ "/bin", "/libexec", "/share/applications", "/share/GConf" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gcr"
+                }
+            ]
+        },
+        {
+            "name": "libwnck",
+            "cleanup": [ "/bin" ],
+            "build-options" : {
+                "env": {
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
+                }
+            },
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/libwnck"
+                }
+            ]
+        },
+        {
+            "name": "avahi",
+            "cleanup": [ "/bin" ],
+            "config-opts": [
+                "--with-distro=none",
+                "--enable-gobject",
+                "--with-xml=expat",
+                "--disable-libdaemon",
+                "--disable-core-docs",
+                "--disable-manpages",
+                "--disable-mono",
+                "--disable-qt3",
+                "--disable-qt4",
+                "--disable-python",
+                "--disable-gtk",
+                "--disable-gtk3"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://avahi.org/download/avahi-0.6.31.tar.gz",
+                    "sha256": "8372719b24e2dd75de6f59bb1315e600db4fd092805bd1201ed0cb651a2dab48"
+                }
+            ]
+        },
+        {
+            "name": "gnome-desktop",
+            "config-opts": ["--disable-debug-tools"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-desktop"
+                }
+            ]
+        },
+        {
+            "name": "epiphany",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/epiphany"
+                }
+            ]
+        }
+    ]
+}
