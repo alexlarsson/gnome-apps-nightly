@@ -41,33 +41,12 @@
             ]
         },
         {
-            "name": "autoconf-archive",
-            "cleanup": ["*"],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "http://ftp.acc.umu.se/mirror/gnu.org/gnu/autoconf-archive/autoconf-archive-2015.09.25.tar.xz",
-                    "sha256": "7c0467a5dbd2340153bca5a477bd92fbc951d9ee3cbed92f16f6bf08ac0c350a"
-                }
-            ]
-        },
-        {
             "name": "liboauth",
             "sources": [
                 {
                     "type": "archive",
                     "url": "http://netix.dl.sourceforge.net/project/liboauth/liboauth-1.0.3.tar.gz",
                     "sha256": "0df60157b052f0e774ade8a8bac59d6e8d4b464058cc55f9208d72e41156811f"
-                }
-            ]
-        },
-        {
-            "name": "gcr",
-            "cleanup": [ "/bin", "/libexec", "/share/applications", "/share/GConf" ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gcr"
                 }
             ]
         },

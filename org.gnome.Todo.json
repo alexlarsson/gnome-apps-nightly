@@ -26,17 +26,6 @@
                 "*.la", "*.a"],
     "modules": [
         {
-            "name": "autoconf-archive",
-            "cleanup": ["*"],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "http://ftp.acc.umu.se/mirror/gnu.org/gnu/autoconf-archive/autoconf-archive-2015.09.25.tar.xz",
-                    "sha256": "7c0467a5dbd2340153bca5a477bd92fbc951d9ee3cbed92f16f6bf08ac0c350a"
-                }
-            ]
-        },
-        {
             "name": "gnome-online-accounts",
             "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
             "sources": [
@@ -57,16 +46,6 @@
                     "type": "archive",
                     "url": "https://github.com/libical/libical/releases/download/v1.0.1/libical-1.0.1.tar.gz",
                     "sha256": "089ce3c42d97fbd7a5d4b3c70adbdd82115dd306349c1f5c46a8fb3f8c949592"
-                }
-            ]
-        },
-        {
-            "name": "gcr",
-            "cleanup": [ "/bin", "/libexec", "/share/applications", "/share/GConf" ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gcr"
                 }
             ]
         },

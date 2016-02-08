@@ -50,16 +50,6 @@
             ]
         },
         {
-            "name": "gcr",
-            "cleanup": [ "/bin", "/libexec", "/share/applications", "/share/GConf" ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gcr"
-                }
-            ]
-        },
-        {
             "name": "evolution-data-server",
             "cleanup": ["/lib/evolution-data-server/*-backends", "/libexec", "/share/dbus-1/services" ],
             "config-opts": ["--disable-google-auth",
