@@ -1,0 +1,139 @@
+{
+    "app-id": "org.gnome.Software.XdgApp",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "strip": false,
+    "rename-desktop-file": "org.gnome.Software.desktop",
+    "rename-appdata-file": "org.gnome.Software.appdata.xml",
+    "rename-icon": "org.gnome.Software",
+    "desktop-file-name-prefix": "(XdgApp) ",
+    "copy-icon": true,
+    "command": "gnome-software",
+    "finish-args": ["--share=ipc",
+                    "--socket=x11",
+                    "--socket=pulseaudio",
+                    "--filesystem=~/.local/share/xdg-app",
+                    "--share=network",
+                    "--talk-name=ca.desrt.dconf"],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            /* Such hack, much bad */
+            "MOUNT_FUSE_PATH": "../tmp/",
+            "V": "1"
+        }
+    },
+    "cleanup": ["*.la", "*.a",
+                "/include",
+                "/lib/girepository-1.0",
+                "/lib/pkgconfig",
+                "/share/bash-completion",
+                "/share/gir-1.0",
+                "/share/gnome-shell",
+                "/share/help",
+                "/share/man",
+                "/share/pkgconfig"
+    ],
+    "modules": [
+        {
+            "name": "appstream-glib",
+            "config-opts": ["--disable-builder",
+                            "--disable-gtk-doc", "--disable-man", "--disable-dep11"],
+            "cleanup": [ "/share/installed-tests",
+                         "/share/gettext",
+                         "/share/aclocal" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/hughsie/appstream-glib.git"
+                }
+            ]
+        },
+        {
+            /* README: needed for ostree */
+            "name": "libgsystem",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/libgsystem"
+                }
+            ]
+        },
+        {
+            /* README: needed for xdg-app */
+            "name": "ostree",
+            "config-opts": ["--disable-man"],
+            "cleanup": [ "/bin", "/etc/grub.d", "/libexec" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/ostree"
+                }
+            ]
+        },
+        {
+            /* README: needed for xdg-app */
+            "name": "libfuse",
+            "cleanup": [ "/bin" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libfuse/libfuse/releases/download/fuse_2_9_5/fuse-2.9.5.tar.gz",
+                    "sha256": "579f371cc5ffc1afca7057512bf7d52988a9ede57859a7c55e5b9f72435cdbb5"
+                }
+            ]
+        },
+        {
+            "name": "xdg-app",
+            "config-opts": ["--disable-documentation", "--disable-seccomp",
+                            "--disable-sandboxed-triggers"],
+            "cleanup": [ "/etc/profile.d",
+                         "/libexec",
+                         "/lib/systemd",
+                         "/share/dbus-1/interfaces/org.freedesktop.*",
+                         "/share/dbus-1/services/org.freedesktop.*",
+                         "/share/gdm" ],
+            "post-install": [
+                /* These are needed for the triggers */
+                "cp /usr/bin/gtk-update-icon-cache /app/bin",
+                "cp /usr/bin/update-mime-database /app/bin",
+                "cp /usr/bin/update-desktop-database /app/bin"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/xdg-app/xdg-app"
+                }
+            ]
+        },
+        {
+            "name": "gnome-desktop",
+            "cleanup": [ "/libexec" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-desktop"
+                }
+            ]
+        },
+        {
+            "name": "gnome-software",
+            "config-opts": ["--disable-packagekit",
+                            "--enable-xdg-app",
+                            "--disable-man",
+                            "--disable-polkit"],
+            "cleanup": [ "/etc/xdg" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://git.gnome.org/gnome-software"
+                },
+                {
+                    "type": "patch",
+                    "path": "gnome-software-name.patch"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+diff --git a/src/gs-application.c b/src/gs-application.c
+index 3136217..f8298aa 100644
+--- a/src/gs-application.c
++++ b/src/gs-application.c
+@@ -809,7 +809,7 @@ GsApplication *
+ gs_application_new (void)
+ {
+ 	return g_object_new (GS_APPLICATION_TYPE,
+-			     "application-id", "org.gnome.Software",
++			     "application-id", "org.gnome.Software.XdgApp",
+ 			     "flags", G_APPLICATION_HANDLES_OPEN,
+ 			     "inactivity-timeout", 12000,
+ 			     NULL);
+diff --git a/src/gs-dbus-helper.c b/src/gs-dbus-helper.c
+index e657f2a..8663b0f 100644
+--- a/src/gs-dbus-helper.c
++++ b/src/gs-dbus-helper.c
+@@ -755,7 +755,7 @@ bus_gotten_cb (GObject      *source_object,
+ 	                  G_CALLBACK (handle_modify2_install_printer_drivers), dbus_helper);
+ 
+ 	/* Look up our own localized name and export it as a property on the bus */
+-	app_info = g_desktop_app_info_new ("org.gnome.Software.desktop");
++	app_info = g_desktop_app_info_new ("org.gnome.Software.XdgApp.desktop");
+ 	if (app_info != NULL) {
+ 		const gchar *app_name = g_app_info_get_name (G_APP_INFO (app_info));
+ 		if (app_name != NULL)
