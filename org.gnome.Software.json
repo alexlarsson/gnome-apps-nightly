@@ -15,7 +15,9 @@
                     "--socket=pulseaudio",
                     "--filesystem=~/.local/share/xdg-app",
                     "--share=network",
-                    "--talk-name=ca.desrt.dconf"],
+                    "--talk-name=ca.desrt.dconf",
+                    "--talk-name=org.gtk.Notifications",
+                    "--talk-name=org.freedesktop.Notifications"],
     "build-options" : {
         "cflags": "-O2 -g",
         "cxxflags": "-O2 -g",
