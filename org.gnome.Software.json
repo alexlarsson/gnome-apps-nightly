@@ -73,7 +73,6 @@
             "name": "ostree",
             "config-opts": ["--disable-man"],
             "cleanup": [ "/bin", "/etc/grub.d", "/libexec" ],
-            "make-args": [ "XDG_APP_BINDIR=/usr/bin" ],
             "sources": [
                 {
                     "type": "git",
@@ -97,6 +96,7 @@
             "name": "xdg-app",
             "config-opts": ["--disable-documentation", "--disable-seccomp",
                             "--disable-sandboxed-triggers"],
+            "make-args": [ "XDG_APP_BINDIR=/usr/bin" ],
             "cleanup": [ "/etc/profile.d",
                          "/libexec",
                          "/lib/systemd",
