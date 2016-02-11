@@ -73,10 +73,16 @@
             "name": "ostree",
             "config-opts": ["--disable-man"],
             "cleanup": [ "/bin", "/etc/grub.d", "/libexec" ],
+            /* Work around lack of libgpgme-pthread in runtime */
+            "post-install": ["cp /usr/lib/libgpgme-pthread* /app/lib/" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "git://git.gnome.org/ostree"
+                },
+                {
+                    "type": "patch",
+                    "path": "ostree-gpgme-pthreads.patch"
                 }
             ]
         },
