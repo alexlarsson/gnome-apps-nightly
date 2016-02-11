@@ -73,6 +73,7 @@
             "name": "ostree",
             "config-opts": ["--disable-man"],
             "cleanup": [ "/bin", "/etc/grub.d", "/libexec" ],
+            "make-args": [ "XDG_APP_BINDIR=/usr/bin" ],
             "sources": [
                 {
                     "type": "git",
