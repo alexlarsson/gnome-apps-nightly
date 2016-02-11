@@ -113,7 +113,8 @@
             "cleanup": [ "/bin", "/share/GConf" ],
             "config-opts": ["--disable-telepathy-backend",
                             "--disable-ofono-backend",
-                            "--disable-bluez-backend"],
+                            "--disable-bluez-backend",
+                            "--disable-fatal-warnings"],
             "sources": [
                 {
                     "type": "git",
