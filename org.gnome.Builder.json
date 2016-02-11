@@ -6,7 +6,17 @@
     "strip": false,
     "command": "gnome-builder",
     "rename-icon": "builder",
-    "finish-args": ["--share=ipc", "--socket=x11", "--socket=pulseaudio", "--filesystem=host", "--talk-name=ca.desrt.dconf"],
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Wayland access */
+        "--socket=wayland",
+        /* We want full fs access */
+        "--filesystem=host",
+        /* Needed for dconf to work (+ host or homedir read access from above) */
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+    ],
     "build-options" : {
         "cflags": "-O2 -g",
         "cxxflags": "-O2 -g",

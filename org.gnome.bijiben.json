@@ -5,14 +5,27 @@
     "sdk": "org.gnome.Sdk",
     "strip": false,
     "command": "bijiben",
-    "finish-args": ["--share=ipc", "--socket=x11", "--socket=pulseaudio",
-                    "--share=network", "--filesystem=host", "--talk-name=ca.desrt.dconf",
-                    "--talk-name=org.gnome.OnlineAccounts",
-                    "--talk-name=org.gnome.evolution.dataserver.AddressBook9",
-                    "--talk-name=org.gnome.evolution.dataserver.Calendar7",
-                    "--talk-name=org.gnome.evolution.dataserver.Sources5",
-                    "--talk-name=org.gnome.evolution.dataserver.Subprocess.Backend.*",
-                    "--talk-name=org.freedesktop.Tracker1"],
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Wayland access */
+        "--socket=wayland",
+        /* Needs to talk to the network: */
+        "--share=network",
+        /* Full filesystem access. Is this needed? */
+        "--filesystem=host",
+        /* Needed for dconf to work (+ host or homedir read access from above) */
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        /* Evolution data server access */
+        "--talk-name=org.gnome.OnlineAccounts",
+        "--talk-name=org.gnome.evolution.dataserver.AddressBook9",
+        "--talk-name=org.gnome.evolution.dataserver.Calendar7",
+        "--talk-name=org.gnome.evolution.dataserver.Sources5",
+        "--talk-name=org.gnome.evolution.dataserver.Subprocess.Backend.*",
+        /* Tracker access */
+        "--talk-name=org.freedesktop.Tracker1"
+    ],
     "build-options" : {
         "cflags": "-O2 -g",
         "cxxflags": "-O2 -g",
