@@ -42,8 +42,7 @@
                 "/share/gnome-shell",
                 "/share/help",
                 "/share/man",
-                "/share/pkgconfig"
-    ],
+                "/share/pkgconfig" ],
     "modules": [
         {
             "name": "appstream-glib",
@@ -127,10 +126,25 @@
         },
         {
             "name": "gnome-software",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://gtkspell.sourceforge.net/download/gtkspell3-3.0.7.tar.gz",
+                    "sha256": "13f2e6d3e2554cc24253ef592074b28c117db33b7a4465c98c69a3e0a4fa3cc2"
+                }
+            ]
+        },
+        {
+            "name": "gnome-software",
             "config-opts": ["--disable-packagekit",
                             "--enable-xdg-app",
                             "--disable-man",
                             "--disable-polkit"],
+            "post-install": [
+                /* Rename service file so dbus activation works */
+                "mv /app/share/dbus-1/services/org.gnome.Software.service /app/share/dbus-1/services/org.gnome.Software.XdgApp.service",
+                "sed -i s/Name=org.gnome.Software/Name=org.gnome.Software.XdgApp/ /app/share/dbus-1/services/org.gnome.Software.XdgApp.service"
+            ],
             "cleanup": [ "/etc/xdg" ],
             "sources": [
                 {
