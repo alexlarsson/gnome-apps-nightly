@@ -3,10 +3,10 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
-    "strip": false,
     "command": "epiphany",
     "rename-appdata-file": "epiphany.appdata.xml",
     "rename-desktop-file": "epiphany.desktop",
+    "tags": ["nightly"],
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
         /* X11 + XShm access */

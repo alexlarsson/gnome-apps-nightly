@@ -3,11 +3,11 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
-    "strip": false,
     "command": "evince",
     "rename-desktop-file": "evince.desktop",
     "rename-appdata-file": "evince.appdata.xml",
     "rename-icon": "evince",
+    "tags": ["nightly"],
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
         /* X11 + XShm access */

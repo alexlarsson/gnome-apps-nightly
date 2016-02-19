@@ -6,6 +6,7 @@
     "command": "iagno",
     "rename-desktop-file": "iagno.desktop",
     "rename-appdata-file": "iagno.appdata.xml",
+    "tags": ["nightly"],
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
         /* X11 + XShm access */

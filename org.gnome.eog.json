@@ -3,11 +3,11 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
-    "strip": false,
     "command": "eog",
     "rename-desktop-file": "eog.desktop",
     "rename-appdata-file": "eog.appdata.xml",
     "rename-icon": "eog",
+    "tags": ["nightly"],
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
         /* X11 + XShm access */
