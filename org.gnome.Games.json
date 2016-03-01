@@ -40,38 +40,11 @@
             ]
         },
         {
-            "name": "retro-plugins-game-boy",
+            "name": "retro-plugins",
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/Kekun/retro-plugins-game-boy"
-                }
-            ]
-        },
-        {
-            "name": "retro-plugins-nes",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/Kekun/retro-plugins-nes"
-                }
-            ]
-        },
-        {
-            "name": "retro-plugins-pce",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/Kekun/retro-plugins-pce"
-                }
-            ]
-        },
-        {
-            "name": "retro-plugins-snes",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/Kekun/retro-plugins-snes"
+                    "url": "https://github.com/Kekun/retro-plugins"
                 }
             ]
         },
