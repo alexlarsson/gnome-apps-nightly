@@ -67,15 +67,6 @@
             ]
         },
         {
-            "name": "jsk",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/Kekun/jsk"
-                }
-            ]
-        },
-        {
             "name": "gnome-games",
             "sources": [
                 {
