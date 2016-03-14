@@ -12,9 +12,9 @@
         /* Wayland access */
         "--socket=wayland",
         /* PulseAudio access */
-        "--device=dri" "--socket=pulseaudio"
+        "--device=dri", "--socket=pulseaudio",
         /* Tracker access */
-        "--talk-name=org.freedesktop.Tracker1"
+        "--talk-name=org.freedesktop.Tracker1",
         /* Needed for dconf to work (unfortunately needs homedir read access) */
         "--filesystem=home:ro", "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
