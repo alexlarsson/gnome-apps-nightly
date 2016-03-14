@@ -15,8 +15,9 @@
         "--device=dri", "--socket=pulseaudio",
         /* Tracker access */
         "--talk-name=org.freedesktop.Tracker1",
-        /* Needed for dconf to work (unfortunately needs homedir read access) */
-        "--filesystem=home:ro", "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        /* Needed for dconf to work */
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
     "build-options" : {
         "cflags": "-O2 -g",

@@ -15,6 +15,7 @@
         /* We want full fs access */
         "--filesystem=host",
         /* Needed for dconf to work (+ host or homedir read access from above) */
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
     "build-options" : {
