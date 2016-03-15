@@ -80,10 +80,6 @@
                 {
                     "type": "git",
                     "url": "git://git.gnome.org/ostree"
-                },
-                {
-                    "type": "patch",
-                    "path": "ostree-gpgme-pthreads.patch"
                 }
             ]
         },
