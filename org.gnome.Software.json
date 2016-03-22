@@ -70,6 +70,18 @@
             ]
         },
         {
+            /* README: needed for xdg-app and fuse */
+            "name": "libfuse",
+            "cleanup": [ "/bin" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libfuse/libfuse/releases/download/fuse_2_9_5/fuse-2.9.5.tar.gz",
+                    "sha256": "579f371cc5ffc1afca7057512bf7d52988a9ede57859a7c55e5b9f72435cdbb5"
+                }
+            ]
+        },
+        {
             /* README: needed for xdg-app */
             "name": "ostree",
             "config-opts": ["--disable-man"],
@@ -80,18 +92,6 @@
                 {
                     "type": "git",
                     "url": "git://git.gnome.org/ostree"
-                }
-            ]
-        },
-        {
-            /* README: needed for xdg-app */
-            "name": "libfuse",
-            "cleanup": [ "/bin" ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/libfuse/libfuse/releases/download/fuse_2_9_5/fuse-2.9.5.tar.gz",
-                    "sha256": "579f371cc5ffc1afca7057512bf7d52988a9ede57859a7c55e5b9f72435cdbb5"
                 }
             ]
         },
