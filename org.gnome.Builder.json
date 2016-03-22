@@ -53,7 +53,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libgit2/libgit2.git",
-                    "branch": "maint/v0.23"
+                    "branch": "maint/v0.24"
                 }
             ]
         },
