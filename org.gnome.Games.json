@@ -32,11 +32,11 @@
     ],
     "modules": [
         {
-            "name": "retro-gobject",
+            "name": "retro-gtk",
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/Kekun/retro-gobject"
+                    "url": "https://github.com/Kekun/retro-gtk"
                 }
             ]
         },
@@ -46,15 +46,6 @@
                 {
                     "type": "git",
                     "url": "https://github.com/Kekun/retro-plugins"
-                }
-            ]
-        },
-        {
-            "name": "retro-gtk",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/Kekun/retro-gtk"
                 }
             ]
         },
