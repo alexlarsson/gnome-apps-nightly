@@ -36,7 +36,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/Kekun/retro-gtk"
+                    "url": "git://git.gnome.org/retro-gtk"
                 }
             ]
         },
@@ -45,7 +45,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/Kekun/retro-plugins"
+                    "url": "git://git.gnome.org/retro-plugins"
                 }
             ]
         },
@@ -63,7 +63,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/Kekun/gnome-games.git"
+                    "url": "git://git.gnome.org/gnome-games"
                 }
             ]
         }
