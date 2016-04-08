@@ -1,5 +1,5 @@
 {
-    "app-id": "org.gnome.Rhythmbox",
+    "app-id": "org.gnome.Rhythmbox3",
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
@@ -22,8 +22,6 @@
         "--socket=pulseaudio",
         /* Browse user's Music directory */
         "--filesystem=xdg-music",
-        /* Able to communicate with Rhythmbox's own D-Bus services */
-        "--own-name=org.gnome.Rhythmbox3",
         /* Needed for dconf to work */
         "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
