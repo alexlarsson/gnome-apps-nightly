@@ -1,7 +1,8 @@
 {
     "app-id": "org.gnome.iagno",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "master",
+    "runtime-version": "3.20",
+    "branch": "3.20",
     "sdk": "org.gnome.Sdk",
     "command": "iagno",
     "rename-desktop-file": "iagno.desktop",

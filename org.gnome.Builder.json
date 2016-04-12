@@ -1,7 +1,8 @@
 {
     "app-id": "org.gnome.Builder",
     "runtime": "org.gnome.Sdk",
-    "runtime-version": "master",
+    "runtime-version": "3.20",
+    "branch": "3.20",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-builder",
     "rename-icon": "builder",

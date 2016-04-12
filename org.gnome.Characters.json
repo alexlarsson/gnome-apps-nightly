@@ -1,7 +1,8 @@
 {
     "app-id": "org.gnome.Characters",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "master",
+    "runtime-version": "3.20",
+    "branch": "3.20",
     "sdk": "org.gnome.Sdk",
     "tags": ["nightly"],
     "desktop-file-name-prefix": "(Nightly) ",
