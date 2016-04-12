@@ -2,14 +2,13 @@
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
     "rename-desktop-file": "evince.desktop",
     "rename-appdata-file": "evince.appdata.xml",
     "rename-icon": "evince",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -63,8 +62,9 @@
             "config-opts": [ "--disable-nautilus" ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/evince"
+                    "type": "arhive",
+                    "url": "https://download.gnome.org/sources/evince/3.20/evince-3.20.0.tar.xz",
+                    "sha256": "cf8358a453686c2a7f85d245f83fe918c0ce02eb6532339f3e02e31249a5a280"
                 }
             ]
         }

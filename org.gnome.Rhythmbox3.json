@@ -2,14 +2,13 @@
     "app-id": "org.gnome.Rhythmbox3",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "rhythmbox",
     "rename-appdata-file": "rhythmbox.appdata.xml",
     "rename-desktop-file": "rhythmbox.desktop",
     "rename-icon": "rhythmbox",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",

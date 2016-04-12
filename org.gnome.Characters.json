@@ -2,10 +2,9 @@
     "app-id": "org.gnome.Characters",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -31,8 +30,9 @@
             "config-opts": ["--disable-debug-tools"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-desktop"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-desktop/3.20/gnome-desktop-3.20.1.tar.xz",
+                    "sha256": "6eac7b2b1a9672685028b81d2b06cb45449f967e66dd41724bc4a9596941c140"
                 }
             ]
         },
@@ -40,8 +40,9 @@
             "name": "gnome-characters",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-characters"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-characters/3.20/gnome-characters-3.20.1.tar.xz",
+                    "sha256": "6891eed27a5b023200992540266a9216d081eef890d6d0836380dc3c0033857c"
                 }
             ]
         }

@@ -2,12 +2,11 @@
     "app-id": "org.gnome.Builder",
     "runtime": "org.gnome.Sdk",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-builder",
     "rename-icon": "builder",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -62,8 +61,9 @@
             "name": "libgit2-glib",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/libgit2-glib"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libgit2-glib/0.24/libgit2-glib-0.24.0.tar.xz",
+                    "sha256": "d616c268821c28ff8dc1a6419dbf8555fa48e31dc6509c10f5151be7690f4845"
                 }
             ]
         },
@@ -72,8 +72,9 @@
             "cleanup": [ "/bin/*", "/lib/peas-demo" ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/libpeas"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libpeas/1.18/libpeas-1.18.0.tar.xz",
+                    "sha256": "bf49842c64c36925bbc41d954de490b6ff7faa29b45f6fd9e91ddcc779165e26"
                 }
             ]
         },
@@ -81,8 +82,9 @@
             "name": "gtksourceview",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gtksourceview"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gtksourceview/3.20/gtksourceview-3.20.1.tar.xz",
+                    "sha256": "322d95c0eaba768a47956ccf1af732ea9377ab7a8afc145b1a34a04012ae8c4c"
                 }
             ]
         },
@@ -90,8 +92,9 @@
             "name": "gnome-builder",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-builder"
+                    "type": "archive",
+                    "url": "ghttps://download.gnome.org/sources/gnome-builder/3.20/gnome-builder-3.20.0.tar.xz",
+                    "sha256": "1260f38d6fa0008c1b10238873b764b3fb47c383267bad083b298a7bcae8fb9b"
                 }
             ]
         }

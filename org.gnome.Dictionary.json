@@ -2,11 +2,10 @@
     "app-id": "org.gnome.Dictionary",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-dictionary",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -34,8 +33,9 @@
             "name": "gnome-dictionary",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-dictionary"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-dictionary/3.20/gnome-dictionary-3.20.0.tar.xz",
+                    "sha256": "efb36377d46eff9291d3b8fec37baab2355f9dc8bc7edb791b6a625574716121"
                 }
             ]
         }

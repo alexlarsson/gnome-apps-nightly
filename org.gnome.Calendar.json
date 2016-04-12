@@ -2,11 +2,10 @@
     "app-id": "org.gnome.Calendar",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-calendar",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -42,8 +41,9 @@
             "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-online-accounts"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-online-accounts/3.20/gnome-online-accounts-3.20.1.tar.xz",
+                    "sha256": "c37aebc1e12f31f5516d33a354181e4d202a07da4f7d3a95b0da8cf0028c0c93"
                 }
             ]
         },
@@ -68,8 +68,9 @@
                             "--disable-uoa", "--disable-google", "--disable-weather" ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/evolution-data-server"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/evolution-data-server/3.20/evolution-data-server-3.20.1.tar.xz",
+                    "sha256": "1dfbf6b45656c202f3d68212afb11710e40188db84748d3e487a89ccd4874b53"
                 }
             ]
         },
@@ -77,8 +78,9 @@
             "name": "gnome-calendar",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-calendar"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-calendar/3.20/gnome-calendar-3.20.0.tar.xz"
+                    "sha256": "a6466cd22d65f4a890a82c4d351c16a51c9471380d5ee2c5601dc56f9121ec60"
                 }
             ]
         }

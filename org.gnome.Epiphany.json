@@ -2,13 +2,12 @@
     "app-id": "org.gnome.Epiphany",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "epiphany",
     "rename-appdata-file": "epiphany.appdata.xml",
     "rename-desktop-file": "epiphany.desktop",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -50,8 +49,9 @@
             },
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/libwnck"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libwnck/3.14/libwnck-3.14.1.tar.xz",
+                    "sha256": "bb643c9c423c8aa79c59973ce27ce91d3b180d1e9907902278fb79391f52befa"
                 }
             ]
         },
@@ -85,8 +85,9 @@
             "config-opts": ["--disable-debug-tools"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-desktop"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-desktop/3.20/gnome-desktop-3.20.1.tar.xz",
+                    "sha256": "6eac7b2b1a9672685028b81d2b06cb45449f967e66dd41724bc4a9596941c140"
                 }
             ]
         },
@@ -94,8 +95,9 @@
             "name": "epiphany",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/epiphany"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/epiphany/3.20/epiphany-3.20.1.tar.xz",
+                    "sha256": "7171f67d5edde0e82b8bad4761638622aa969d6ffcea896cd94bbe509af9c9e7"
                 }
             ]
         }

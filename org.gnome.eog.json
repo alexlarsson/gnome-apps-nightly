@@ -2,14 +2,13 @@
     "app-id": "org.gnome.eog",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "eog",
     "rename-desktop-file": "eog.desktop",
     "rename-appdata-file": "eog.appdata.xml",
     "rename-icon": "eog",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -38,8 +37,9 @@
             "config-opts": ["--disable-debug-tools"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-desktop"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-desktop/3.20/gnome-desktop-3.20.1.tar.xz",
+                    "sha256": "6eac7b2b1a9672685028b81d2b06cb45449f967e66dd41724bc4a9596941c140"
                 }
             ]
         },
@@ -49,8 +49,9 @@
             "config-opts": [ ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/libpeas"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libpeas/1.18/libpeas-1.18.0.tar.xz",
+                    "sha256": "bf49842c64c36925bbc41d954de490b6ff7faa29b45f6fd9e91ddcc779165e26"
                 }
             ]
         },
@@ -59,8 +60,9 @@
             "config-opts": [ ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/eog"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/eog/3.20/eog-3.20.1.tar.xz",
+                    "sha256": "4f021988f1b24b4d575f85fc789596194a6e890af3fa9b2b8e4f493fc3df8352"
                 }
             ]
         }

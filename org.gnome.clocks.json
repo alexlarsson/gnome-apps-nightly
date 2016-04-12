@@ -2,11 +2,10 @@
     "app-id": "org.gnome.clocks",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-clocks",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -37,8 +36,9 @@
             "name": "geocode-glib",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/geocode-glib"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/geocode-glib/3.20/geocode-glib-3.20.1.tar.xz",
+                    "sha256": "669fc832cabf8cc2f0fc4194a8fa464cdb9c03ebf9aca5353d7cf935ba8637a2"
                 }
             ]
         },
@@ -51,8 +51,9 @@
             },
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/libgweather"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libgweather/3.20/libgweather-3.20.0.tar.xz",
+                    "sha256": "52629b8e9fcd979377f43a2223cf0e7096d3c3e940faa94021132ee0f879b8d6"
                 }
             ]
         },
@@ -61,8 +62,9 @@
             "config-opts": ["--disable-debug-tools"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-desktop"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-desktop/3.20/gnome-desktop-3.20.1.tar.xz",
+                    "sha256": "6eac7b2b1a9672685028b81d2b06cb45449f967e66dd41724bc4a9596941c140"
                 }
             ]
         },
@@ -70,8 +72,9 @@
             "name": "gsound",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gsound"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gsound/1.0/gsound-1.0.2.tar.xz",
+                    "sha256": "bba8ff30eea815037e53bee727bbd5f0b6a2e74d452a7711b819a7c444e78e53"
                 }
             ]
         },
@@ -79,8 +82,9 @@
             "name": "gnome-clocks",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-clocks"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-clocks/3.20/gnome-clocks-3.20.0.tar.xz",
+                    "sha256": "e7a6da2ba3778fcfd77a6734f960319035370b942a3358089b7e712055e1bb17"
                 }
             ]
         }

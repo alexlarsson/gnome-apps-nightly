@@ -2,11 +2,10 @@
     "app-id": "org.gnome.Polari",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "polari",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -68,8 +67,9 @@
             "name": "polari",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/polari"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/polari/3.20/polari-3.20.0.tar.xz",
+                    "sha256": "519402e5a7e7aa684d364523bf16357be748c4d0a08b1297e2dee379b8da440a"
                 }
             ]
         }

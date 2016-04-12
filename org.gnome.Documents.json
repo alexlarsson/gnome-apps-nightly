@@ -2,11 +2,10 @@
     "app-id": "org.gnome.Documents",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.20",
-    "branch": "3.20",
+    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-documents",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "tags": [],
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -40,8 +39,9 @@
             "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-online-accounts"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-online-accounts/3.20/gnome-online-accounts-3.20.1.tar.xz",
+                    "sha256": "c37aebc1e12f31f5516d33a354181e4d202a07da4f7d3a95b0da8cf0028c0c93"
                 }
             ]
         },
@@ -50,8 +50,9 @@
             "config-opts": ["--disable-debug-tools"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-desktop"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-desktop/3.20/gnome-desktop-3.20.1.tar.xz",
+                    "sha256": "6eac7b2b1a9672685028b81d2b06cb45449f967e66dd41724bc4a9596941c140"
                 }
             ]
         },
@@ -70,8 +71,9 @@
             "config-opts": ["--disable-always-build-tests", "--disable-Werror"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/libgdata"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libgdata/0.17/libgdata-0.17.4.tar.xz",
+                    "sha256": "9f15fe0efe4d9a001d45853891ab3a7c45cadc4dea2252944b7341903ce1d1f6"
                 }
             ]
         },
@@ -79,8 +81,9 @@
             "name": "librest",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/librest"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/rest/0.7/rest-0.7.93.tar.xz",
+                    "sha256": "c710644455340a44ddc005c645c466f05c0d779993138ea21a62c6082108b216"
                 }
             ]
         },
@@ -88,8 +91,9 @@
             "name": "libzapojit",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/libzapojit"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libzapojit/0.0/libzapojit-0.0.3.tar.xz",
+                    "sha256": "3d25f99329105abb99d1e9651b0aa1842065456ea54c22970a7330e9f3d1c37e"
                 }
             ]
         },
@@ -125,8 +129,9 @@
                              "--disable-browser-plugin", "--enable-introspection" ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/evince"
+                    "type": "arhive",
+                    "url": "https://download.gnome.org/sources/evince/3.20/evince-3.20.0.tar.xz",
+                    "sha256": "cf8358a453686c2a7f85d245f83fe918c0ce02eb6532339f3e02e31249a5a280"
                 }
             ]
         },
@@ -139,8 +144,9 @@
                              "--disable-tracker-writeback", "--disable-miner-user-guides"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/tracker"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/tracker/1.8/tracker-1.8.0.tar.xz",
+                    "sha256": "a11f31a373bfec3abae38ae719d0a59f666f1f067d8789ade2ed7032a152907d"
                 }
             ]
         },
@@ -149,8 +155,9 @@
             "config-opts": [ "--disable-documentation"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "git://git.gnome.org/gnome-documents"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gnome-documents/3.20/gnome-documents-3.20.0.tar.xz",
+                    "sha256": "a5fa496c5e80eccb8d2e5bba7f4d7dc4cc6c9f53d5bc028402428771be1237d2"
                 }
             ]
         }
