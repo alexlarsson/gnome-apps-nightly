@@ -93,7 +93,7 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "ghttps://download.gnome.org/sources/gnome-builder/3.20/gnome-builder-3.20.0.tar.xz",
+                    "url": "https://download.gnome.org/sources/gnome-builder/3.20/gnome-builder-3.20.0.tar.xz",
                     "sha256": "1260f38d6fa0008c1b10238873b764b3fb47c383267bad083b298a7bcae8fb9b"
                 }
             ]

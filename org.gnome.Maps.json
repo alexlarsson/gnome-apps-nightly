@@ -137,7 +137,7 @@
                 {
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.13.tar.xz",
-                    "sha256": "497310cb187b766fea4b8b064c840e081debe444e374c8386449b64016e054d1"
+                    "sha256": "b3b3a44530ac94c0b3c3710a2d9495d47450c4133006c5e3ca24e0a761683fab"
                 }
             ]
         },

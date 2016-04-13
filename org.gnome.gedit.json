@@ -67,7 +67,7 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gedit/3.20/gedit-3.20.1.tar.xz"
+                    "url": "https://download.gnome.org/sources/gedit/3.20/gedit-3.20.1.tar.xz",
                     "sha256": "9a47e3073f844b67d7358f5a43c71ab04b442b70fcd3c629da77879e9a0c1dc4"
                 }
             ]
