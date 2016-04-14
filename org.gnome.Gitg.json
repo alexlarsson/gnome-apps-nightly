@@ -1,0 +1,123 @@
+{
+    "app-id": "org.gnome.Gitg",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "command": "gitg",
+    "rename-desktop-file": "gitg.desktop",
+    "tags": ["nightly"],
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Wayland access */
+        "--socket=wayland",
+        /* We want full fs access */
+        "--filesystem=host",
+        /* Needed for dconf to work */
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+    ],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            "V": "1"
+        }
+    },
+    "cleanup": ["/include", "/lib/pkgconfig",
+                "/share/pkgconfig", "/share/aclocal",
+                "/man", "/share/man", "/share/gtk-doc",
+                "/share/vala",
+                "*.la", "*.a"],
+    "modules": [
+      {
+        "name": "libssh2",
+        "cmake": true,
+        "config-opts": [ "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib",
+                         "-DBUILD_SHARED_LIBS:BOOL=ON" ],
+        "sources": [
+            {
+                "type": "git",
+                "url": "https://github.com/libssh2/libssh2.git",
+                "branch": "libssh2-1.6.0"
+            }
+        ]
+      },
+      {
+        "name": "libgit2",
+        "cmake": true,
+        "config-opts": [ "-DBUILD_SHARED_LIBS:BOOL=ON",
+                         "-DTHREADSAFE=ON" ],
+        "sources": [
+            {
+                "type": "git",
+                "url": "https://github.com/libgit2/libgit2.git",
+                "branch": "maint/v0.24"
+            }
+        ]
+      },
+      {
+        "name": "libgit2-glib",
+        "sources": [
+            {
+                "type": "git",
+                "url": "git://git.gnome.org/libgit2-glib"
+            }
+        ]
+      },
+      {
+        "name": "libpeas",
+        "cleanup": [ "/bin/*", "/lib/peas-demo" ],
+        "sources": [
+            {
+                "type": "git",
+                "url": "git://git.gnome.org/libpeas"
+            }
+        ]
+      },
+      {
+        "name": "libgee",
+        "build-options" : {
+            "env": {
+                "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
+                "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
+            }
+        },
+        "sources": [
+            {
+                "type": "git",
+                "url": "git://git.gnome.org/libgee"
+            }
+        ]
+      },
+      {
+        "name": "gtkspell3",
+        "sources": [
+            {
+                "type": "archive",
+                "url": "http://gtkspell.sourceforge.net/download/gtkspell3-3.0.8.tar.gz",
+                "sha256": "011a0ce3f7c2f4b3a5b8f54c55927cdd73e1abf591a284a6d66cfb4cfe2d3fff"
+            }
+        ]
+      },
+      {
+        "name": "gtksourceview",
+        "sources": [
+            {
+                "type": "git",
+                "url": "git://git.gnome.org/gtksourceview"
+            }
+        ]
+      },
+      {
+        "name": "gitg",
+        "sources": [
+            {
+                "type": "git",
+                "url": "git://git.gnome.org/gitg"
+            }
+        ]
+      }
+    ]
+}
