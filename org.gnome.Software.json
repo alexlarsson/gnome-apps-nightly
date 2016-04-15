@@ -84,10 +84,8 @@
         {
             /* README: needed for xdg-app */
             "name": "ostree",
-            "config-opts": ["--disable-man"],
+            "config-opts": ["--disable-man", "--without-libmount"],
             "cleanup": [ "/bin", "/etc/grub.d", "/libexec" ],
-            /* Work around lack of libgpgme-pthread in runtime */
-            "post-install": ["cp /usr/lib/libgpgme-pthread* /app/lib/" ],
             "sources": [
                 {
                     "type": "git",
