@@ -234,6 +234,7 @@
         },
         {
             "name": "totem",
+            "config-opts": [ "--disable-static" ],
             "sources": [
                 {
                     "type": "git",
