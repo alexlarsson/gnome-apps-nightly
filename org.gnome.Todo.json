@@ -74,6 +74,7 @@
         },
         {
             "name": "libpeas",
+            "cleanup": [ "/bin/*", "/lib/peas-demo" ],
             "sources": [
                 {
                     "type": "git",

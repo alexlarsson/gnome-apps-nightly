@@ -45,7 +45,6 @@
         {
             "name": "libpeas",
             "cleanup": [ "/bin/*", "/lib/peas-demo" ],
-            "config-opts": [ ],
             "sources": [
                 {
                     "type": "git",

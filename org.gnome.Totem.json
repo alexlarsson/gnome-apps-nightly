@@ -43,13 +43,13 @@
     "modules": [
         {
             "name": "libpeas",
+            "cleanup": [ "/bin/*", "/lib/peas-demo" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "git://git.gnome.org/libpeas"
                 }
-            ],
-            "cleanup": [ "/bin", "/include", "/share/icons" ]
+            ]
         },
         {
             "name": "gmime",
