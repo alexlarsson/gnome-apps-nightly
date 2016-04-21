@@ -50,7 +50,7 @@
                     "url": "git://git.gnome.org/libgrss"
                 }
             ]
-        }
+        },
         {
             "name": "tracker",
             "cleanup": [ "/bin", "/etc", "/libexec" ],
