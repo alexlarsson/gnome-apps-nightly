@@ -73,7 +73,7 @@
         },
         {
             "name": "grilo",
-            "config-opts": [ "--enable-grl-net", "--enable-grl-pls" ],
+            "config-opts": [ "--enable-grl-net", "--enable-grl-pls", "--disable-static" ],
             "sources": [
                 {
                     "type": "git",
