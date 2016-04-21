@@ -65,6 +65,7 @@
         },
         {
             "name": "totem-pl-parser",
+            "config-opts": [ "--disable-static" ],
             "sources": [
                 {
                     "type": "git",
