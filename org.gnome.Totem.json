@@ -113,7 +113,7 @@
         },
         {
             "name": "libgdata",
-            "config-opts": [ "--disable-always-build-tests", "--disable-Werror" ],
+            "config-opts": [ "--disable-always-build-tests", "--disable-Werror", "--disable-static" ],
             "sources": [
                 {
                     "type": "git",
