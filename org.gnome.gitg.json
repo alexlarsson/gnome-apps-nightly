@@ -1,5 +1,5 @@
 {
-    "app-id": "org.gnome.Gitg",
+    "app-id": "org.gnome.gitg",
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
