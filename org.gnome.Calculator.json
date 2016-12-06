@@ -5,7 +5,6 @@
     "sdk": "org.gnome.Sdk",
     "command": "gnome-calculator",
     "tags": ["nightly"],
-    "rename-desktop-file": "gnome-calculator.desktop",
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
         /* X11 + XShm access */
